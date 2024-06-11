@@ -7,7 +7,7 @@ class SupplierSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class InventoryItemSerializer(serializers.ModelSerializer):
-    suppliers = SupplierSerializer(many=True, read_only=True)
+    # suppliers = SupplierSerializer(many=True,)
 
     class Meta:
         model = InventoryItem

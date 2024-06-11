@@ -1,12 +1,10 @@
 {% extends "admin/base.html" %}
-{% load static %}
 
 {% block title %}Priority - Admin{% endblock %}
 {% block responsive %}
-<link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
 {% endblock %}
 {% block branding %}
-<h1 id="site-name" style="font-family: 'Myriad Pro', Arial;">
+<h1 id="site-name">
     <a href="{% url 'admin:index' %}">
         Priority Admin
     </a>
