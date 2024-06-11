@@ -7,7 +7,7 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', include('inventory.urls')),
+    path('priority-api/', include('inventory.urls')),
 
     # drf_spectacular
     path('priority-api-auth/', include('rest_framework.urls')),

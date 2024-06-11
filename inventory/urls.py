@@ -3,8 +3,10 @@ from rest_framework.routers import DefaultRouter
 from .views import InventoryItemViewSet, SupplierViewSet
 
 router = DefaultRouter()
-router.register(r'items', InventoryItemViewSet)
-router.register(r'suppliers', SupplierViewSet)
+router.register('items', InventoryItemViewSet)
+router.register('suppliers', SupplierViewSet)
+
+# app_name = 'inventory'
 
 urlpatterns = [
     path('', include(router.urls)),
