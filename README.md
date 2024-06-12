@@ -7,16 +7,71 @@ This API is designed to be used by various internal systems, including front-end
 and inventory tracking systems. 
 This documentation will guide developers on how to set up, use, and extend the API.
 
-## Setup
+This API (Application Programming Interface) is like a bridge that helps 
+different parts of priority online store system talk to each other. 
+It manages information about the products they sell and the suppliers who provide 
+these products. Here’s how it works:
+
+Managing Products:
+The API keeps a detailed list of all the items in the store, including their names, 
+descriptions, prices, and when they were added to the inventory.
+Employees can use the API to add new items, update details about existing items, 
+view the details of any item, or remove items that are no longer available.
+
+Managing Suppliers:
+The API also keeps track of suppliers, including their names and contact information.
+Employees can add new suppliers, update supplier details, and view information 
+about each supplier. Connecting Products and Suppliers:
+
+Each product can be supplied by one or more suppliers, and each supplier can provide 
+multiple products. The API allows employees to see which suppliers provide a specific 
+product and also see all the products provided by a specific supplier.
+
+How It Helps:
+- Efficiency: By using this API, the store can quickly and accurately manage inventory and supplier information, 
+saving time and reducing errors.
+- Integration: The API ensures that all parts of the system (like the website and inventory 
+tracking) can easily access and use the same up-to-date information.
+- Flexibility: Employees have the tools to easily add, update, or remove products and 
+suppliers, helping the business stay organized and responsive to changes.
+
+  
+### Setup
 Prerequisites
 - Python 3.8+
 - Django 4.0+
 - Django REST Framework 3.1+
+- drf-spectacular 0.27+
 
 
-```bash
+### Installation
+- Clone the repository:
+```bazaar
+git clone https://github.com/benjaminogbonna/Priority-Inventory-Store
+cd Priority-Inventory-Store-master
+```
+- Create and activate a virtual environment if you haven't done so already:
+```bazaar
+python -m venv env
+source env/bin/activate  # On Windows, use `env\Scripts\activate`
+```
+- Install Libraries/dependencies:
+```bazaar
 pip install -r requirements.txt
 ```
+- Run database migrations
+```bazaar
+python manage.py migrate
+```
+- Create a superuser for employees (optional, for accessing the Django admin):
+```bazaar
+python manage.py createsuperuser
+```
+- Start the development server:
+```bazaar
+python manage.py runserver
+```
+
 
 ## API Endpoints and Example Requests & Responses
 The base URL for the API is ```http://127.0.0.1:8000/priority-api/```
@@ -196,15 +251,6 @@ Response
 - Delete a supplier: ```DELETE /priority-api/suppliers/{id}/```
 
 
-
-
-List all suppliers:
-
-
-
-
-
-
 ### Inventory-Supplier Relationship
 - List suppliers for an item: ```GET /priority-api/items/{id}/suppliers/```
 
@@ -260,11 +306,6 @@ To ensure correct functioning of the API, run the tests included in the inventor
 ```bazaar
 python manage.py test inventory
 ```
-
-## Contributing
-still to come
-
-
 
 ## Contributors
 - Benjamin
